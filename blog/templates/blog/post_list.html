@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Jake's blog</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">Jake's Blog</a></h1>
-        </header>
-
+    <header>
+        <h1><a href="/">Jake's Blog</a></h1>
+    </header>
+    
+    {% for post in posts %}
         <article>
-            <time>published: 11.12.2021, 10:59</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <time>published: {{ post.published_date }}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </article>
+    {% endfor %}
 
-        <article>
-            <time>published: 11.12.2021, 11:00</time>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </article>
     </body>
 </html>
